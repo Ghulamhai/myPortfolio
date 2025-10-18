@@ -5,738 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ghulam Haider - Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --primary-color: #2563eb;
-            --secondary-color: #1e40af;
-            --accent-color: #3b82f6;
-            --text-primary: #1f2937;
-            --text-secondary: #6b7280;
-            --bg-light: #f9fafb;
-            --bg-white: #ffffff;
-            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: var(--text-primary);
-            overflow-x: hidden;
-        }
-
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 1rem 0;
-            z-index: 1000;
-            box-shadow: var(--shadow);
-        }
-
-        nav .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: var(--primary-color);
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text-primary);
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: var(--primary-color);
-        }
-
-        .menu-toggle {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: var(--text-primary);
-        }
-
-        /* Hero Section */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            text-align: center;
-            padding: 2rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.1" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,138.7C960,139,1056,117,1152,96C1248,75,1344,53,1392,42.7L1440,32L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>') no-repeat bottom;
-            background-size: cover;
-            opacity: 0.3;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 1;
-            max-width: 800px;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            animation: fadeInUp 1s ease-out;
-        }
-
-        .hero .subtitle {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            opacity: 0.95;
-            animation: fadeInUp 1s ease-out 0.2s both;
-        }
-
-        .hero .typing-text {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            min-height: 2rem;
-            animation: fadeInUp 1s ease-out 0.4s both;
-        }
-
-        .hero .cta-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            animation: fadeInUp 1s ease-out 0.6s both;
-        }
-
-        .btn {
-            padding: 0.75rem 2rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s;
-            display: inline-block;
-        }
-
-        .btn-primary {
-            background: white;
-            color: var(--primary-color);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: white;
-            border: 2px solid white;
-        }
-
-        .btn-secondary:hover {
-            background: white;
-            color: var(--primary-color);
-        }
-
-        /* Section Styles */
-        section {
-            padding: 5rem 2rem;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: var(--text-primary);
-            position: relative;
-        }
-
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 60px;
-            height: 4px;
-            background: var(--primary-color);
-            margin: 1rem auto;
-            border-radius: 2px;
-        }
-
-        /* About Section */
-        #about {
-            background: var(--bg-light);
-        }
-
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
-        }
-
-        .about-text p {
-            margin-bottom: 1rem;
-            color: var(--text-secondary);
-            line-height: 1.8;
-        }
-
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-
-        .stat-card {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 10px;
-            box-shadow: var(--shadow);
-            text-align: center;
-            transition: transform 0.3s;
-        }
-
-        .stat-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .stat-card .number {
-            font-size: 2rem;
-            font-weight: bold;
-            color: var(--primary-color);
-        }
-
-        .stat-card .label {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-        }
-
-        /* Education Section */
-        .education-grid {
-            display: grid;
-            gap: 2rem;
-        }
-
-        .education-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: var(--shadow);
-            border-left: 4px solid var(--primary-color);
-            transition: all 0.3s;
-        }
-
-        .education-card:hover {
-            box-shadow: var(--shadow-lg);
-            transform: translateX(5px);
-        }
-
-        .education-card h3 {
-            color: var(--primary-color);
-            margin-bottom: 0.5rem;
-        }
-
-        .education-card .institute {
-            color: var(--text-primary);
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-
-        .education-card .details {
-            display: flex;
-            justify-content: space-between;
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-        }
-
-        /* Projects Section */
-        #projects {
-            background: var(--bg-light);
-        }
-
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
-        }
-
-        .project-card {
-            background: white;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            transition: all 0.3s;
-        }
-
-        .project-card:hover {
-            box-shadow: var(--shadow-lg);
-            transform: translateY(-10px);
-        }
-
-        .project-header {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: white;
-            padding: 2rem;
-            position: relative;
-        }
-
-        .project-header h3 {
-            font-size: 1.3rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .project-date {
-            font-size: 0.85rem;
-            opacity: 0.9;
-        }
-
-        .project-body {
-            padding: 1.5rem;
-        }
-
-        .project-body ul {
-            list-style: none;
-            margin-bottom: 1rem;
-        }
-
-        .project-body ul li {
-            padding: 0.5rem 0;
-            padding-left: 1.5rem;
-            position: relative;
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-        }
-
-        .project-body ul li::before {
-            content: '▹';
-            position: absolute;
-            left: 0;
-            color: var(--primary-color);
-            font-weight: bold;
-        }
-
-        .tech-stack {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-top: 1rem;
-        }
-
-        .tech-tag {
-            background: var(--bg-light);
-            padding: 0.25rem 0.75rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            color: var(--primary-color);
-            border: 1px solid var(--primary-color);
-        }
-
-        .project-link {
-            display: inline-block;
-            margin-top: 1rem;
-            color: var(--primary-color);
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s;
-        }
-
-        .project-link:hover {
-            gap: 0.5rem;
-        }
-
-        /* Skills Section */
-        .skills-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-        }
-
-        .skill-category {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: var(--shadow);
-            transition: all 0.3s;
-        }
-
-        .skill-category:hover {
-            box-shadow: var(--shadow-lg);
-        }
-
-        .skill-category h3 {
-            color: var(--primary-color);
-            margin-bottom: 1.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .skill-category h3 i {
-            font-size: 1.5rem;
-        }
-
-        .skill-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.75rem;
-        }
-
-        .skill-item {
-            background: var(--bg-light);
-            padding: 0.5rem 1rem;
-            border-radius: 25px;
-            font-size: 0.9rem;
-            color: var(--text-primary);
-            transition: all 0.3s;
-        }
-
-        .skill-item:hover {
-            background: var(--primary-color);
-            color: white;
-            transform: translateY(-2px);
-        }
-
-        /* Achievements Section */
-        #achievements {
-            background: var(--bg-light);
-        }
-
-        .achievements-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-        }
-
-        .achievement-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: var(--shadow);
-            text-align: center;
-            transition: all 0.3s;
-        }
-
-        .achievement-card:hover {
-            box-shadow: var(--shadow-lg);
-            transform: scale(1.05);
-        }
-
-        .achievement-icon {
-            font-size: 3rem;
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-        }
-
-        .achievement-card h3 {
-            color: var(--text-primary);
-            margin-bottom: 0.5rem;
-        }
-
-        .achievement-card p {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-        }
-
-        .achievement-year {
-            display: inline-block;
-            margin-top: 1rem;
-            background: var(--bg-light);
-            padding: 0.25rem 1rem;
-            border-radius: 20px;
-            color: var(--primary-color);
-            font-weight: 600;
-        }
-
-        /* Contact Section */
-        #contact {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-        }
-
-        #contact .section-title {
-            color: white;
-        }
-
-        #contact .section-title::after {
-            background: white;
-        }
-
-        .contact-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: start;
-        }
-
-        .contact-info {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .contact-item i {
-            font-size: 2rem;
-            background: rgba(255, 255, 255, 0.2);
-            padding: 1rem;
-            border-radius: 50%;
-        }
-
-        .contact-item-info h3 {
-            margin-bottom: 0.25rem;
-            font-size: 1.1rem;
-        }
-
-        .contact-item-info a {
-            color: white;
-            text-decoration: none;
-            opacity: 0.9;
-        }
-
-        .contact-item-info a:hover {
-            opacity: 1;
-            text-decoration: underline;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1rem;
-            margin-top: 2rem;
-        }
-
-        .social-link {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 50px;
-            height: 50px;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 50%;
-            color: white;
-            font-size: 1.5rem;
-            transition: all 0.3s;
-            text-decoration: none;
-        }
-
-        .social-link:hover {
-            background: white;
-            color: var(--primary-color);
-            transform: translateY(-5px);
-        }
-
-        .contact-form {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            padding: 2rem;
-            border-radius: 15px;
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 0.75rem;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            border-radius: 8px;
-            background: rgba(255, 255, 255, 0.1);
-            color: white;
-            font-family: inherit;
-        }
-
-        .form-group input::placeholder,
-        .form-group textarea::placeholder {
-            color: rgba(255, 255, 255, 0.6);
-        }
-
-        .form-group textarea {
-            resize: vertical;
-            min-height: 120px;
-        }
-
-        .submit-btn {
-            width: 100%;
-            padding: 1rem;
-            background: white;
-            color: var(--primary-color);
-            border: none;
-            border-radius: 8px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .submit-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        /* Footer */
-        footer {
-            background: var(--text-primary);
-            color: white;
-            text-align: center;
-            padding: 2rem;
-        }
-
-        footer p {
-            opacity: 0.8;
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .fade-in {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.6s ease-out;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .menu-toggle {
-                display: block;
-            }
-
-            .nav-links {
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                background: white;
-                flex-direction: column;
-                padding: 1rem 2rem;
-                box-shadow: var(--shadow);
-                display: none;
-            }
-
-            .nav-links.active {
-                display: flex;
-            }
-
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .hero .subtitle {
-                font-size: 1.2rem;
-            }
-
-            .about-content,
-            .contact-content {
-                grid-template-columns: 1fr;
-            }
-
-            .stats {
-                grid-template-columns: 1fr;
-            }
-
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .skills-container {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* Scroll to top button */
-        .scroll-top {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            width: 50px;
-            height: 50px;
-            background: var(--primary-color);
-            color: white;
-            border: none;
-            border-radius: 50%;
-            font-size: 1.5rem;
-            cursor: pointer;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s;
-            z-index: 999;
-        }
-
-        .scroll-top:hover {
-            background: var(--secondary-color);
-            transform: translateY(-5px);
-        }
-
-        .scroll-top.visible {
-            display: flex;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <!-- Navigation -->
@@ -763,6 +32,7 @@
         <div class="hero-content">
             <h1>Ghulam Haider</h1>
             <p class="subtitle">M.Tech Student in Computer Science & Engineering</p>
+            <p class="subtitle">Indian Institute of Technology Ropar</p>
             <p class="typing-text">
                 <span id="typed-text"></span>
                 <span class="cursor">|</span>
@@ -1173,147 +443,192 @@
         <i class="fas fa-arrow-up"></i>
     </button>
 
-    <script>
-        // Typing Animation
-        const phrases = [
-            "Deep Learning Enthusiast",
-            "Computer Vision Researcher",
-            "Full-Stack Developer",
-            "Problem Solver",
-            "ML Engineer"
-        ];
-        
-        let phraseIndex = 0;
-        let charIndex = 0;
-        let isDeleting = false;
-        const typingSpeed = 100;
-        const deletingSpeed = 50;
-        const pauseTime = 2000;
+    <script src="script.js"></script>
+</body>
+</html> {% endcomment %}
 
-        function typeWriter() {
-            const currentPhrase = phrases[phraseIndex];
-            const typedElement = document.getElementById('typed-text');
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ghulam Haider - Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
 
-            if (!isDeleting && charIndex <= currentPhrase.length) {
-                typedElement.textContent = currentPhrase.substring(0, charIndex);
-                charIndex++;
-                setTimeout(typeWriter, typingSpeed);
-            } else if (isDeleting && charIndex >= 0) {
-                typedElement.textContent = currentPhrase.substring(0, charIndex);
-                charIndex--;
-                setTimeout(typeWriter, deletingSpeed);
-            } else if (!isDeleting && charIndex > currentPhrase.length) {
-                setTimeout(() => {
-                    isDeleting = true;
-                    typeWriter();
-                }, pauseTime);
-            } else if (isDeleting && charIndex < 0) {
-                isDeleting = false;
-                phraseIndex = (phraseIndex + 1) % phrases.length;
-                setTimeout(typeWriter, 500);
-            }
-        }
+<body>
+  <!-- Navigation -->
+  <nav>
+    <div class="container">
+      <div class="logo">GH</div>
+      <button class="menu-toggle" onclick="toggleMenu()">
+        <i class="fas fa-bars"></i>
+      </button>
+      <ul class="nav-links">
+        <li><a href="#home" onclick="closeMenu()">Home</a></li>
+        <li><a href="#about" onclick="closeMenu()">About</a></li>
+        <li><a href="#education" onclick="closeMenu()">Education</a></li>
+        <li><a href="#projects" onclick="closeMenu()">Projects</a></li>
+        <li><a href="#skills" onclick="closeMenu()">Skills</a></li>
+        <li><a href="#achievements" onclick="closeMenu()">Achievements</a></li>
+        <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
 
-        // Start typing animation
-        typeWriter();
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="hero-content">
+      <h1>Ghulam Haider</h1>
+      <p class="subtitle">M.Tech Student in Computer Science & Engineering</p>
+      <p class="typing-text">
+        <span id="typed-text"></span>
+        <span class="cursor">|</span>
+      </p>
+      <div class="cta-buttons">
+        <a href="#projects" class="btn btn-primary">View My Work</a>
+        <a href="#contact" class="btn btn-secondary">Get in Touch</a>
+      </div>
+    </div>
+  </section>
 
-        // Smooth Scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
+  <!-- About Section -->
+  <section id="about">
+    <div class="container">
+      <h2 class="section-title fade-in">About Me</h2>
+      <div class="about-content">
+        <div class="about-text fade-in">
+          <p>
+            I am a passionate Computer Science graduate student at IIT Ropar,
+            specializing in Deep Learning, Computer Vision, and Full-Stack
+            Development. Currently pursuing my Master's thesis on Fine-grained
+            Hate Meme Detection using multimodal AI techniques.
+          </p>
+          <p>
+            With a strong foundation in algorithms, machine learning, and
+            software engineering, I excel at building scalable solutions that
+            bridge research and real-world applications. My work spans from IoT
+            systems to advanced deep learning models deployed in production
+            environments.
+          </p>
+          <p>
+            I'm currently serving as a Teaching Assistant for Operating Systems
+            at IIT Ropar and actively seeking opportunities to apply my skills
+            in innovative projects and research.
+          </p>
+        </div>
+        <div class="stats fade-in">
+          <div class="stat-card">
+            <div class="number">7.48</div>
+            <div class="label">M.Tech CGPA</div>
+          </div>
+          <div class="stat-card">
+            <div class="number">99.12</div>
+            <div class="label">GATE Percentile</div>
+          </div>
+          <div class="stat-card">
+            <div class="number">4+</div>
+            <div class="label">Major Projects</div>
+          </div>
+          <div class="stat-card">
+            <div class="number">10+</div>
+            <div class="label">Technologies</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-        // Mobile Menu Toggle
-        function toggleMenu() {
-            const navLinks = document.querySelector('.nav-links');
-            navLinks.classList.toggle('active');
-        }
+  <!-- Education Section -->
+  <section id="education">
+    <div class="container">
+      <h2 class="section-title fade-in">Education</h2>
+      <div class="education-grid">
+        <div class="education-card fade-in">
+          <h3>M. Tech in Computer Science & Engineering</h3>
+          <p class="institute">Indian Institute of Technology, Ropar</p>
+          <div class="details">
+            <span><i class="fas fa-calendar"></i> 2024 - 2026</span>
+            <span><i class="fas fa-star"></i> CGPA: 7.48 (till 2nd Sem)</span>
+          </div>
+        </div>
+        <div class="education-card fade-in">
+          <h3>B. Tech in Computer Science & Engineering</h3>
+          <p class="institute">University of Calcutta</p>
+          <div class="details">
+            <span><i class="fas fa-calendar"></i> 2019 - 2023</span>
+            <span><i class="fas fa-star"></i> CGPA: 7.33</span>
+          </div>
+        </div>
+        <div class="education-card fade-in">
+          <h3>Senior Secondary</h3>
+          <p class="institute">Bihar State Education Board, Patna</p>
+          <div class="details">
+            <span><i class="fas fa-calendar"></i> 2018</span>
+            <span><i class="fas fa-star"></i> 65.4%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-        function closeMenu() {
-            const navLinks = document.querySelector('.nav-links');
-            navLinks.classList.remove('active');
-        }
+  <!-- Projects Section -->
+  <section id="projects">
+    <div class="container">
+      <h2 class="section-title fade-in">Featured Projects</h2>
+      <div class="projects-grid">
 
-        // Intersection Observer for Fade-in Animation
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
+        <!-- (All project cards remain exactly as in your version) -->
+        <!-- Paste all project-card divs here unchanged -->
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
+      </div>
+    </div>
+  </section>
 
-        document.querySelectorAll('.fade-in').forEach(el => {
-            observer.observe(el);
-        });
+  <!-- Skills Section -->
+  <section id="skills">
+    <div class="container">
+      <h2 class="section-title fade-in">Technical Skills</h2>
+      <div class="skills-container">
+        <!-- same as before -->
+      </div>
+    </div>
+  </section>
 
-        // Scroll to Top Button
-        const scrollTopBtn = document.querySelector('.scroll-top');
+  <!-- Achievements Section -->
+  <section id="achievements">
+    <div class="container">
+      <h2 class="section-title fade-in">Achievements</h2>
+      <div class="achievements-grid">
+        <!-- same as before -->
+      </div>
+    </div>
+  </section>
 
-        window.addEventListener('scroll', () => {
-            if (window.pageYOffset > 300) {
-                scrollTopBtn.classList.add('visible');
-            } else {
-                scrollTopBtn.classList.remove('visible');
-            }
-        });
+  <!-- Contact Section -->
+  <section id="contact">
+    <div class="container">
+      <h2 class="section-title fade-in">Get In Touch</h2>
+      <div class="contact-content">
+        <!-- same as before -->
+      </div>
+    </div>
+  </section>
 
-        function scrollToTop() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        }
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Ghulam Haider. All rights reserved.</p>
+      <p>Designed and Developed with ❤️</p>
+    </div>
+  </footer>
 
-        // Form Submission
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const message = document.getElementById('message').value;
+  <!-- Scroll to Top -->
+  <button class="scroll-top" onclick="scrollToTop()">
+    <i class="fas fa-arrow-up"></i>
+  </button>
 
-            // Here you would typically send the form data to a backend server
-            // For now, we'll just show an alert
-            alert(`Thank you, ${name}! Your message has been received. I'll get back to you soon at ${email}`);
-            
-            // Reset form
-            this.reset();
-        });
-
-        // Active Navigation Link
-        window.addEventListener('scroll', () => {
-            let current = '';
-            const sections = document.querySelectorAll('section');
-            
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                if (window.pageYOffset >= sectionTop - 200) {
-                    current = section.getAttribute('id');
-                }
-            });
-
-            document.querySelectorAll('.nav-links a').forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href').slice(1) === current) {
-                    link.classList.add('active');
-                }
-            });
-        });
-    </script>
+  <script src="script.js"></script>
 </body>
 </html>
